@@ -1,10 +1,47 @@
+<!-- Interpolations -->
 <!-- <p>Hello, welcome {{customerName}}</p> -->
-
 <!-- <p>{{getCustomerName()}}</p> -->
+
+<!-- Form -->
 <div class="container">
     <div class="form-group">
-        Account Name: <input type="text" class="form-control" >
+        Account Name: <input type="text" class="form-control" [(ngModel)]="customerName">
+        <!-- <p>{{customerName}}</p> -->
         Account Type: <input type="text" class="form-control" >
         <button style="margin-top: 20px;" type="button" class="btn btn-primary" (click) = "displayName()">Save</button>
     </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of accountList">
+            <td>{{i.name}}</td>
+            <td>{{i.type}}</td>
+            <td>
+                <button type="button" class="btn btn-secondary">Details</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
 </div> 
+
+<!-- NgIf -->
+
+<!-- <div>
+    <p *ngIf="">flag is true</p>
+    <p *ngIf="!flag">flag is false</p>
+</div>
+
+<div *ngIf="flag; else div2">
+    <p>flag is true</p> 
+</div>
+
+<ng-template #div2>
+    <p>flag is false</p> 
+</ng-template> -->

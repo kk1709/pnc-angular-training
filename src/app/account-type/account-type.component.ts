@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-type.component.scss']
 })
 export class AccountTypeComponent implements OnInit {
-
-  customerName = "Michael";
+  flag = true;
+  customerName = "John";
+  accountList = [
+    {name: 'Saving Account', type: 'Saving'},
+    {name: 'Credit Card Account', type: 'CCA'},
+    {name: 'Checking Account', type: 'Debit'}
+  ]
   constructor() { }
 
   ngOnInit(): void {
