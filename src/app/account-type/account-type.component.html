@@ -3,12 +3,16 @@
 <!-- <p>{{getCustomerName()}}</p> -->
 
 <!-- Form -->
+<app-welcome [customerName]="custName" (outputMsgEvent)="getDataFromChild($event)"></app-welcome>
+
+<p>{{childData}}</p>
+
 <div class="container">
     <div class="form-group">
-        Account Name: <input type="text" class="form-control" [(ngModel)]="customerName">
-        <!-- <p>{{customerName}}</p> -->
-        Account Type: <input type="text" class="form-control" >
-        <button style="margin-top: 20px;" type="button" class="btn btn-primary" (click) = "displayName()">Save</button>
+        Account Name: <input type="text" class="form-control" [(ngModel)]="custName">
+        <!-- <p>{{custName}}</p> -->
+        Account Type: <input type="text" class="form-control" [(ngModel)]="type">
+        <button style="margin-top: 20px;" type="button" class="btn btn-primary" (click) = "saveData()">Save</button>
     </div>
 
     <table class="table">
@@ -24,7 +28,7 @@
             <td>{{i.name}}</td>
             <td>{{i.type}}</td>
             <td>
-                <button type="button" class="btn btn-secondary">Details</button>
+                <button type="button" class="btn btn-secondary" (click)="navigateToDetails()">Details</button>
             </td>
         </tr>
       </tbody>
