@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-account-type',
@@ -16,7 +17,9 @@ export class AccountTypeComponent implements OnInit {
     {name: 'Credit Card Account', type: 'CCA'},
     {name: 'Checking Account', type: 'Debit'}
   ]
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +28,10 @@ export class AccountTypeComponent implements OnInit {
     this.accountList.push( {name: this.custName, type: this.type});
   }
 
-  navigateToDetails(){
+  navigateToDetails(selectedItem: string){
+    //set the type
+    
+    this.accountService.setAccountType(selectedItem);
     this.router.navigateByUrl('details');
   }
 

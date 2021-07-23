@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-account-details',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-details.component.scss']
 })
 export class AccountDetailsComponent implements OnInit {
-
-  constructor() { }
+  dataFromType= "";
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.getDataFromAccountType();
   }
 
+  getDataFromAccountType(){
+   this.dataFromType= this.accountService.getAccountType();
+  }
 }
