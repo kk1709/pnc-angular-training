@@ -22,8 +22,18 @@ export class AccountTypeComponent implements OnInit {
     private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.getApiData();
   }
 
+  getApiData(){
+    this.accountService.getDataFromApi().subscribe(
+      result => {
+        console.log("service data");
+        console.log(result);
+      }
+    );
+  }
+  
   saveData(){
     this.accountList.push( {name: this.custName, type: this.type});
   }

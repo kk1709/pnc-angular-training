@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class AccountService {
 
   accountType: string;  
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getAccountType(){
     return this.accountType;
@@ -16,5 +18,8 @@ export class AccountService {
     this.accountType = type;
   }
 
+  public getDataFromApi(){
+    return this.http.get('./assets/mockData.json');
+  }
 
 }

@@ -7,6 +7,7 @@ import { AccountTypeComponent } from './account-type/account-type.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule  
+    AppRoutingModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
